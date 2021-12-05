@@ -29,11 +29,15 @@ export function App() {
   useEffect(() => {
     async function getRankInfos() {
       try {
-        const response = await api.get('ranking');
-        setPlayers(response.data.players);
-        setUpdatedAt(response.data.updatedAt);
+        const responseRank = await api.get('rank.php');
+        setPlayers(responseRank.data.players);
+        setUpdatedAt(responseRank.data.updatedAt);
         const adminLocalStorage = JSON.parse(localStorage.getItem('daily.ranking:admin') || '');
         (adminLocalStorage) && setIsAdminViewer(adminLocalStorage.isAdminViewer);
+
+        const responseSLP = await api.get('smooth-love-potion.php');
+        const { SLPBRLCurrency } = responseSLP.data;
+        setSLPCurrentBRLCurrency(`R$${SLPBRLCurrency}`);
       } catch (e) {
         console.error(e)
       } finally {
@@ -43,22 +47,6 @@ export function App() {
     }
 
     getRankInfos();
-  }, []);
-
-  useEffect(() => {
-    async function getSLPCurrentBRLCurrency() {
-      try {
-        const response = await api.get('smooth-love-potion');
-        const { SLPBRLCurrency } = response.data;
-        setSLPCurrentBRLCurrency(`R$${SLPBRLCurrency}`);
-      } catch (e) {
-        console.error(e)
-      } finally {
-        setTimeout( getSLPCurrentBRLCurrency, 500);
-      }
-    }
-
-    getSLPCurrentBRLCurrency();
   }, []);
 
   function activeAdminViewer() {
