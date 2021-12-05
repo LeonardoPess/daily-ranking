@@ -83,4 +83,16 @@ export const GlobalStyle = createGlobalStyle`
   .hide {
     display: none;
   }
+
+  .load {
+    width: 10%;
+
+    display: block;
+    position: fixed;
+    top: calc(50% - (112px / 2));
+    left: calc(50% - (112px / 2));
+
+    -webkit-animation: 2s spin infinite linear;
+    animation: 2s spin infinite linear;
+  }
 `
