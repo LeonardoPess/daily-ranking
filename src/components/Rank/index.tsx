@@ -7,7 +7,7 @@ import poison from '../../assets/poison.png';
 import trophy from '../../assets/trophy.png';
 import loader from '../../assets/loader-2-line.svg';
 
-interface player {
+interface Player {
   name: string;
   score: number;
   total: number;
@@ -15,7 +15,7 @@ interface player {
 }
 
 interface RankProps {
-  players: player[];
+  players: Player[];
   updatedAt: string;
   isLoading: boolean;
 }

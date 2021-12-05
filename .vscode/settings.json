@@ -9,6 +9,7 @@
     "public": false,
     "yarn.lock": true,
     "tsconfig.json": true,
-    "README.md": true
+    "README.md": true,
+    ".vercel": true
   }
 }

@@ -24,17 +24,25 @@ export function App() {
   const [ isLoading, setIsLoading ] = useState<boolean>(true);
 
   useEffect(() => {
-    api.get('rank')
-      .then((response) => {
-        setPlayers(response.data[0].players);
-        setUpdatedAt(response.data[0].updatedAt);
+    async function updateRankInfos() {
+      try {
+        const response = await api.get('rank.php');
+        setPlayers(response.data.players);
+        setUpdatedAt(response.data.updatedAt);
+      } catch (e) {
+        console.error(e)
+      } finally {
         setIsLoading(false);
-      });
+        setTimeout( updateRankInfos, 5000);
+      }
+    }
+  
+    updateRankInfos();
   }, []);
 
   return (
     <>
-      <Router>
+      <Router basename="/ranking/">
         <Routes>
           <Route path="/" element={<Rank players={players} updatedAt={updatedAt} isLoading={isLoading} />}></Route>
           <Route path="/total" element={<Total players={players} updatedAt={updatedAt} isLoading={isLoading} />}></Route>
