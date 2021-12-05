@@ -30,7 +30,7 @@ export function Rank({players, updatedAt, isLoading}: RankProps) {
       ) : (
         <div className="container" data-table="wrapper">
           <span className="date">{updatedAt}</span>
-          <Link to="/total" className="link-total-page">Total</Link>
+          <Link to="/total-diario" className="link-total-page">Total</Link>
           <table  cellSpacing="0">
             <thead>
               <tr>

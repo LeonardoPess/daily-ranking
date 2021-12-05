@@ -13,17 +13,15 @@ interface Player {
   rank: number;
 }
 
-interface TotalProps {
+interface DailyTotalProps {
   players: Player[];
   updatedAt: string;
   isLoading: boolean;
 }
 
-export function Total({players, updatedAt, isLoading}: TotalProps) {
-  function getTotalScore() {
-    let newTotal = 0;
-    players.map((player) => newTotal += Number(player.score));
-    return newTotal;
+export function DailyTotal({players, updatedAt, isLoading}: DailyTotalProps) {
+  function sumAllScores() {
+    return players.reduce((a: number, {score}) => a + Number(score), 0);
   }
 
   return (
@@ -38,7 +36,7 @@ export function Total({players, updatedAt, isLoading}: TotalProps) {
             <div className="rankTotalBox">
               <div>
                 <span>{updatedAt}</span>
-                <span>{getTotalScore()}</span>
+                <span>{sumAllScores()}</span>
               </div>
               <div>
                 <img src={poison} alt="Poison" />

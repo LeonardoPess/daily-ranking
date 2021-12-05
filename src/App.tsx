@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import { Rank } from './components/Rank';
-import { Total } from './components/Total';
+import { DailyTotal } from './components/DailyTotal';
 import { api } from './services/api';
 
 import { GlobalStyle } from './styles/global';
@@ -42,10 +42,10 @@ export function App() {
 
   return (
     <>
-      <Router basename="/ranking/">
+      <Router basename="/">
         <Routes>
           <Route path="/" element={<Rank players={players} updatedAt={updatedAt} isLoading={isLoading} />}></Route>
-          <Route path="/total" element={<Total players={players} updatedAt={updatedAt} isLoading={isLoading} />}></Route>
+          <Route path="/total-diario" element={<DailyTotal players={players} updatedAt={updatedAt} isLoading={isLoading} />}></Route>
         </Routes>
       </Router>
       <GlobalStyle />
