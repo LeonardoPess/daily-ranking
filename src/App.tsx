@@ -29,7 +29,7 @@ export function App() {
   useEffect(() => {
     async function getRankInfos() {
       try {
-        const response = await api.get('ranking.php');
+        const response = await api.get('ranking');
         setPlayers(response.data.players);
         setUpdatedAt(response.data.updatedAt);
         const adminLocalStorage = JSON.parse(localStorage.getItem('daily.ranking:admin') || '');
@@ -48,7 +48,7 @@ export function App() {
   useEffect(() => {
     async function getSLPCurrentBRLCurrency() {
       try {
-        const response = await api.get('smooth-love-potion.php');
+        const response = await api.get('smooth-love-potion');
         const { SLPBRLCurrency } = response.data;
         setSLPCurrentBRLCurrency(`R$${SLPBRLCurrency}`);
       } catch (e) {
