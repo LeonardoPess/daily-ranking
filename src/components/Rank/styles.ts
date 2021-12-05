@@ -36,6 +36,12 @@ export const Container = styled.section`
       color: white;
       font-size: .8rem;
       font-weight: bold;
+
+      transition: color .2s;
+
+      &:hover {
+        color: var(--pink-200);
+      }
     }
   }
 
@@ -89,13 +95,21 @@ table {
           max-width: 90px;
         }
 
-        &:last-child {
+        &.rank-column {
           font-size: 1rem;
+          display: flex;
+          align-items: center;
 
           span {
-            width: 100%;
             display: flex;
-            font-weight: bold;
+            align-items: center;
+            flex-direction: column;
+
+            font-size: .8rem;
+
+            strong {
+              font-size: 1rem;
+            }
           }
         }
 

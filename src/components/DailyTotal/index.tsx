@@ -17,9 +17,10 @@ interface DailyTotalProps {
   players: Player[];
   updatedAt: string;
   isLoading: boolean;
+  SLPCurrentBRLCurrency: string;
 }
 
-export function DailyTotal({players, updatedAt, isLoading}: DailyTotalProps) {
+export function DailyTotal({players, updatedAt, isLoading, SLPCurrentBRLCurrency}: DailyTotalProps) {
   function sumAllScores() {
     return players.reduce((a: number, {score}) => a + Number(score), 0);
   }
@@ -30,9 +31,7 @@ export function DailyTotal({players, updatedAt, isLoading}: DailyTotalProps) {
           <img className="load" src={loader} alt="Loading" />
         ) : (
           <section className="rankTotal">
-            <Link to="/" className="link-total-page"><img src={arrowGoBack} alt="Voltar" /></Link>
-            <h1>Total Diário</h1>
-
+            <h1>Total Diário <Link to="/" className="link-total-page"><img src={arrowGoBack} alt="Voltar" /></Link></h1>
             <div className="rankTotalBox">
               <div>
                 <span>{updatedAt}</span>
@@ -42,6 +41,7 @@ export function DailyTotal({players, updatedAt, isLoading}: DailyTotalProps) {
                 <img src={poison} alt="Poison" />
               </div>
             </div>
+            <span>{SLPCurrentBRLCurrency}</span>
           </section>
         )}
     </Container>

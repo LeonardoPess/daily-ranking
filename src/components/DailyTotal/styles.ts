@@ -27,19 +27,28 @@ export const Container = styled.section`
   }
 
   .rankTotal {
-    position: relative;
-
-    .link-total-page {
-      display: inline-block;
-      position: absolute;
-      right: 0;
-    }
-
     h1 {
       padding: 2rem;
       display: block;
 
       text-align: center;
+      font-size: 1.5rem;
+
+      a {
+        margin-left: .5rem;
+        position: relative;
+        top: 4px;
+
+        transition: filter .2s;
+
+        &:hover {
+          filter: invert(32%) sepia(76%) saturate(1440%) hue-rotate(267deg) brightness(92%) contrast(100%);
+        }
+      }
+    }
+
+    & > span {
+      padding: 1rem;
       font-size: 1.5rem;
     }
 
