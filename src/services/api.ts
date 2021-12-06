@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://domain.com/'
+  baseURL: 'https://pesscode.com/ranking/'
 });

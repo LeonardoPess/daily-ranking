@@ -77,7 +77,7 @@ export function Rank({players, updatedAt, isLoading, isAdminViewer, SLPCurrentBR
                       <span className="forty-percent">40%</span>
                       <span className="thirtyfive-value">1750</span>
                       <span className="forty-value">2250</span>
-                      <div className="current-value" style={{width: (player.total * 100) / 2600}}>{player.total}</div>
+                      <div className="current-value" style={{width: `${(player.total * 100) / 2600}%`}}>{player.total}</div>
                     </div>
                   </td>
                     {(player.rank < 800) ? (
